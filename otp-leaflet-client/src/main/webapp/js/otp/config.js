@@ -57,21 +57,21 @@ otp.config = {
     // maxZoom : 20,
     
     /* Whether the map should be moved to contain the full itinerary when a result is received. */
-    zoomToFitResults    : false,
+    zoomToFitResults    : true,
 
     /**
      * Site name / description / branding display options
      */
 
-    siteName            : "My OTP Instance",
+    siteName            : "goATL Trip Planner",
     siteDescription     : "An OpenTripPlanner deployment.",
     logoGraphic         : 'images/otp_logo_darkbg_40px.png',
     // bikeshareName    : "",
 
     showLogo            : true,
     showTitle           : true,
-    showModuleSelector  : true,
-    metric              : true,
+    showModuleSelector  : false,
+    metric              : false,
 
 
     /**
@@ -92,11 +92,12 @@ otp.config = {
             className : 'otp.modules.multimodal.MultimodalPlannerModule',
             defaultBaseLayer : 'MapQuest OSM',
             isDefault: true
-        },
-        {
-            id : 'analyst',
-            className : 'otp.modules.analyst.AnalystModule',
         }
+        // ,
+        // {
+        //     id : 'analyst',
+        //     className : 'otp.modules.analyst.AnalystModule',
+        // }
     ],
     
     
@@ -112,6 +113,12 @@ otp.config = {
      */
 
     geocoders : [
+        {
+                    name: "Geocoder",
+                    className: "otp.core.Geocoder",
+                    url: "/otp-geocoder/geocode",
+                    addressParam: "address",
+        }
     ],
 
     
@@ -129,12 +136,12 @@ otp.config = {
     infoWidgets: [
         {
             title: 'About',
-            content: '<p>About this site</p>',
-            //cssClass: 'otp-contactWidget',
+            content: '<p>This site was developed in partnership with the Atlanta regional transit and shuttle operators.</p>',
+            // cssClass: 'otp-contactWidget',
         },
         {
             title: 'Contact',
-            content: '<p>Comments? Contact us at...</p>'
+            content: '<p>Comments? Contact us at opentripplanner@atlantaregional.com.</p>'
         },           
     ],
     
