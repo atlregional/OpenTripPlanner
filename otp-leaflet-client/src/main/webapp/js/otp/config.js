@@ -65,7 +65,7 @@ otp.config = {
 
     siteName            : "goATL Trip Planner",
     siteDescription     : "An OpenTripPlanner deployment.",
-    logoGraphic         : 'images/otp_logo_darkbg_40px.png',
+    logoGraphic         : 'images/goatl_40.png',
     // bikeshareName    : "",
 
     showLogo            : true,

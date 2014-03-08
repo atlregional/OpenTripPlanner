@@ -20,3 +20,4 @@ gen-py/
 .idea/
 .sonar
 _site/
+.DS_STORE
