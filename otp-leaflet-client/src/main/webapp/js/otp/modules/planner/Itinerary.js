@@ -297,12 +297,13 @@ otp.modules.planner.Itinerary = otp.Class({
                 for(var i=0; i<leg.steps.length; i++) {
                     var step = leg.steps[i];
                     var text = otp.util.Itin.getLegStepText(step);
-                    
+                    var iconName = (step.relativeDirection.toLowerCase() === "depart") ? step.relativeDirection.toLowerCase() + '-' + leg.mode.toLowerCase() : step.relativeDirection.toLowerCase()
+
                     html += '<div class="otp-itin-print-step" style="margin-top: .5em;">';
                     html += '<div class="otp-itin-step-icon">';
                     if(step.relativeDirection)
                         html += '<img src="images/directions/' +
-                            step.relativeDirection.toLowerCase()+'.png">';
+                            iconName + '.png">';
                     html += '</div>';                
                     var dist = otp.util.Itin.distanceString(step.distance);
                     //html += '<div class="otp-itin-step-dist">' +
