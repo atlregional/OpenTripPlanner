@@ -32,7 +32,7 @@ otp.core.Map = otp.Class({
         this.webapp = webapp;
         
         
-                
+        
         //var baseLayers = {};
         var defaultBaseLayer = null;
         
@@ -46,13 +46,18 @@ otp.core.Map = otp.Class({
             var layer = new L.TileLayer(layerConfig.tileUrl, layerProps);
 
 	        this.baseLayers[layerConfig.name] = layer;
-            if(i == 0) defaultBaseLayer = layer;            
+            // if(i == 0) defaultBaseLayer = layer;            
 	        
 	        if(typeof layerConfig.getTileUrl != 'undefined') {
         	    layer.getTileUrl = otp.config.getTileUrl;
             }
         }
-        
+        this.baseLayers['Google Streets'] = new L.Google('ROADMAP');
+        this.baseLayers['Google Satellite'] = new L.Google('HYBRID');
+        defaultBaseLayer = this.baseLayers['Google Streets']
+        // var map = new L.Map('map', {center: new L.LatLng(51.51, -0.11), zoom: 9});
+        // var googleLayer = new L.Google('ROADMAP');
+        // map.addLayer(googleLayer);
 
         var mapProps = { 
             layers  : [ defaultBaseLayer ],

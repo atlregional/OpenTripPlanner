@@ -294,7 +294,7 @@ otp.widgets.ItinerariesWidget =
                 width: widthPx,
                 left: leftPx,
                 //background: this.getModeColor(leg.mode)
-                background: this.getModeColor(leg.mode)+' url('+otp.config.resourcePath+'images/mode/'+leg.mode.toLowerCase()+'.png) center no-repeat'
+                background: this.getColor(leg)+' url('+otp.config.resourcePath+'images/mode/'+leg.mode.toLowerCase()+'.png) center no-repeat'
             })
             .appendTo(div);
             if(showRouteLabel) segment.append('<div style="margin-left:'+(widthPx/2+9)+'px;">'+leg.routeShortName+'</div>');
@@ -307,7 +307,23 @@ otp.widgets.ItinerariesWidget =
         }
         
     },
-
+    getColor : function(leg) {
+        if(mode === "WALK") return '#bbb';
+        else if(leg.route === "BLUE") return '#0000FF';
+        else if(leg.route === "GREEN") return '#ffd700';
+        else if(leg.route === "RED") return '#FF0000';
+        else if(leg.route === "GOLD") return '#ffd700';
+        else if(/MARTA/g.test(leg.agencyId)) return '#f79044'
+        else if(/CCT/g.test(leg.agencyId)) return '#a53895'
+        else if(/GCT/g.test(leg.agencyId)) return '#9a0e34'
+        else if(/GRTA/g.test(leg.agencyId)) return '#47bad5'
+        else if(mode === "BICYCLE") return '#44f';
+        else if(mode === "SUBWAY") return '#f00';
+        else if(mode === "RAIL") return '#b00';
+        else if(mode === "BUS") return '#0f0';
+        else if(mode === "TRAM") return '#f00';
+        return '#aaa';
+    },
     getModeColor : function(mode) {
         if(mode === "WALK") return '#bbb';
         if(mode === "BICYCLE") return '#44f';

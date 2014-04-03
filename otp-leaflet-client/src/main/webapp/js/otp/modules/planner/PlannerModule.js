@@ -432,7 +432,10 @@ otp.modules.planner.PlannerModule =
             // draw the polyline
             var polyline = new L.Polyline(otp.util.Geo.decodePolyline(leg.legGeometry.points));
             var weight = 8;
-            polyline.setStyle({ color : this.getModeColor(leg.mode), weight: weight});
+
+            polyline.setStyle({ color : this.getColor(leg), weight: weight});
+
+            polyline.setStyle({ linecap: "square"});
             this.pathLayer.addLayer(polyline);
             polyline.leg = leg;
             polyline.bindPopup("("+leg.routeShortName+") "+leg.routeLongName);
@@ -529,7 +532,23 @@ otp.modules.planner.PlannerModule =
             }
         }
     },
-    
+    getColor : function(leg) {
+        if(mode === "WALK") return '#bbb';
+        else if(leg.route === "BLUE") return '#0000FF';
+        else if(leg.route === "GREEN") return '#ffd700';
+        else if(leg.route === "RED") return '#FF0000';
+        else if(leg.route === "GOLD") return '#ffd700';
+        else if(/MARTA/g.test(leg.agencyId)) return '#f79044'
+        else if(/CCT/g.test(leg.agencyId)) return '#a53895'
+        else if(/GCT/g.test(leg.agencyId)) return '#9a0e34'
+        else if(/GRTA/g.test(leg.agencyId)) return '#47bad5'
+        else if(mode === "BICYCLE") return '#44f';
+        else if(mode === "SUBWAY") return '#f00';
+        else if(mode === "RAIL") return '#b00';
+        else if(mode === "BUS") return '#0f0';
+        else if(mode === "TRAM") return '#f00';
+        return '#aaa';
+    },
     getModeColor : function(mode) {
         if(mode === "WALK") return '#444';
         if(mode === "BICYCLE") return '#0073e5';
