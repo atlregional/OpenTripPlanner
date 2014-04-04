@@ -21,9 +21,9 @@ otp.modules.planner.defaultQueryParams = {
     date                            : moment().format("MM-DD-YYYY"),
     arriveBy                        : false,
     mode                            : "TRANSIT,WALK",
-    maxWalkDistance                 : 804.672, // 1/2 mi.
-    metricDefaultMaxWalkDistance    : 750, // meters
-    imperialDefaultMaxWalkDistance  : 804.672, // 0.5 mile
+    maxWalkDistance                 : 3218.688, // 2.0 mi.
+    metricDefaultMaxWalkDistance    : 3218.688, // ...?
+    imperialDefaultMaxWalkDistance  : 3218.688, // 2.0 mile
     preferredRoutes                 : null,
     otherThanPreferredRoutesPenalty : 300,
     bannedTrips                     : null,
