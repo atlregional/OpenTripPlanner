@@ -85,6 +85,7 @@ public class GoogleGeocoder implements Geocoder {
 		UriBuilder uriBuilder = UriBuilder.fromUri("http://maps.google.com/maps/api/geocode/json");
 		uriBuilder.queryParam("sensor", false);
 		uriBuilder.queryParam("address", address);
+		uriBuilder.queryParam("components", "administrative_area:GA|country:US");
 		URI uri = uriBuilder.build();
 		return new URL(uri.toString());
 	}
