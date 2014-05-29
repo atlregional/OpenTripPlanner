@@ -239,10 +239,22 @@ body {
     float: right;
     width: 30px;
     height: 30px;
+    margin: 0 0 0 0;
+    background: url('images/gear.svg');
+    background-size: 30px 30px;
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {  
+  #otp-widgetManager {
+    float: right;
+    width: 30px;
+    height: 30px;
     margin: 10px 10px 0 0;
     background: url('images/gear.svg');
     background-size: 30px 30px;
     cursor: pointer;
+  }
 }
 
 .otp-widgetManagerMenu {
@@ -744,6 +756,32 @@ h6.drag-to-change {
   }
 }
  
+/* Mode options */
+
+#otp-planner-optionsWidget-modeSelector-widgets {
+  display: none;
+}
+
+
+@media only screen and (min-width: 768px) {  
+  #otp-planner-optionsWidget-modeSelector-widgets {
+    display: block;
+    height: 100px;
+  }
+}
+
+/* Mode selector margin */
+#otp-planner-optionsWidget-modeSelector {
+    margin-bottom: 5px;
+  }
+
+@media only screen and (min-width: 768px) {  
+  #otp-planner-optionsWidget-modeSelector {
+    margin-bottom: 0px;
+  }
+}
+
+
 /* Stop Times Widget */
 
 .otp-stopTimes-list {

@@ -310,7 +310,7 @@ otp.widgets.ItinerariesWidget =
     getColor : function(leg) {
         if(mode === "WALK") return '#bbb';
         else if(leg.route === "BLUE") return '#0000FF';
-        else if(leg.route === "GREEN") return '#ffd700';
+        else if(leg.route === "GREEN") return '#009933';
         else if(leg.route === "RED") return '#FF0000';
         else if(leg.route === "GOLD") return '#ffd700';
         else if(/MARTA/g.test(leg.agencyId)) return '#f79044'
